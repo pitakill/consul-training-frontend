@@ -1,0 +1,37 @@
+<script>
+	export let count;
+</script>
+
+<main>
+  <h1>{count}</h1>
+</main>
+
+<style>
+	main {
+    background: #DA4453;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+		max-width: 240px;
+		margin: -8px;
+    display: flex;
+  }
+
+	h1 {
+		color: #fff;
+		text-transform: uppercase;
+		font-size: 10em;
+		font-weight: 100;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    width: 100vw;
+	}
+
+	@media (min-width: 640px) {
+		main {
+			max-width: none;
+		}
+	}
+</style>
