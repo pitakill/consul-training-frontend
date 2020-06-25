@@ -7,7 +7,7 @@ const app = new App({
   },
 });
 
-fetch('http://localhost:8000')
+fetch(process.env.backendURL)
     .then((r) => r.json())
     .then(({count}) => {
       app.$set({count: `${count} visit${count === 1 ? '' : 's'}`});
