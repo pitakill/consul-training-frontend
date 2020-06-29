@@ -1,9 +1,16 @@
 <script>
 	export let count;
+  let english = true;
 </script>
 
 <main>
-  <h1>{count}</h1>
+  <label>
+    <input type="checkbox" bind:checked={english}>
+    {#if english} spanish {:else} english {/if}
+  </label>
+  <h1>
+    {count} {#if english} visits {:else} visitas {/if}
+  </h1>
 </main>
 
 <style>
@@ -28,6 +35,19 @@
     display: flex;
     width: 100vw;
 	}
+
+  input {
+    display: none;
+  }
+
+  label {
+    color: #fff;
+    cursor: pointer;
+		font-size: 1.5em;
+    position: fixed;
+    right: 50px;
+    top: 50px;
+  }
 
 	@media (min-width: 640px) {
 		main {
