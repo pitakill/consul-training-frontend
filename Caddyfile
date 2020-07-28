@@ -1,0 +1,4 @@
+:{$PORT}
+root * /usr/share/caddy
+file_server
+reverse_proxy /backend {$BACKEND_HOST}:{$BACKEND_PORT}

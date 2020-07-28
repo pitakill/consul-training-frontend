@@ -1,6 +1,6 @@
 FROM node as build
 WORKDIR /app
-ENV BACKENDURL="http://172.17.0.2:8080"
+ENV BACKENDURL="/backend"
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
@@ -8,7 +8,10 @@ RUN npm ci --slient
 COPY . ./
 RUN npm run build
 
-FROM nginx:stable-alpine
-COPY --from=build /app/public /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM caddy:alpine
+ENV PORT=80
+ENV BACKEND_URL=localhost
+ENV BACKEND_PORT=8080
+COPY --from=build /app/public /usr/share/caddy
+COPY Caddyfile /etc/caddy/Caddyfile
+EXPOSE ${PORT}

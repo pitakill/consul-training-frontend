@@ -1,10 +1,11 @@
 <script>
+  import v from './version';
 	export let count;
   export let version;
   let english = true;
 </script>
 
-<main class="{version === '2.0.0' ? 'version2' : 'default'}">
+<main class="{parseInt(version, 10) % 2 === 0 ? 'version-alternative' : 'default'}">
   <label>
     <input type="checkbox" bind:checked={english}>
     {#if english} spanish {:else} english {/if}
@@ -12,6 +13,7 @@
   <h1>
     {count} {#if english} visits {:else} visitas {/if}
   </h1>
+  <h6>v{v}</h6>
 </main>
 
 <style>
@@ -28,7 +30,7 @@
     background: linear-gradient(to right, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   
-  main.version2 {
+  main.version-alternative {
     background: #00416A;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #E4E5E6, #00416A);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

@@ -2,7 +2,10 @@
 
 image = pitakill/consul-training-frontend
 
-all: create deploy
+all: update-version create deploy
+
+update-version:
+	@echo -e "const version = \"$(version)\";\n\nexport default version;" > src/version.js
 
 create:
 	docker build -t $(image):$(version) .
