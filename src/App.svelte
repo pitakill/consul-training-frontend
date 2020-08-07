@@ -1,6 +1,7 @@
 <script>
   import v from './version';
 	export let count;
+  export let region;
   export let version;
   let english = true;
 </script>
@@ -13,7 +14,10 @@
   <h1>
     {count} {#if english} visits {:else} visitas {/if}
   </h1>
-  <h6>v{v}</h6>
+  <section>
+    <h5>v{v}</h5>
+    <h5>{region}</h5>
+  </section>
 </main>
 
 <style>
@@ -48,6 +52,12 @@
     width: 100vw;
 	}
 
+  h5 {
+		color: #fff;
+    margin: 0;
+    text-align: right;
+  }
+
   input {
     display: none;
   }
@@ -56,6 +66,12 @@
     color: #fff;
     cursor: pointer;
 		font-size: 1.5em;
+    position: fixed;
+    left: 50px;
+    top: 50px;
+  }
+
+  section {
     position: fixed;
     right: 50px;
     top: 50px;

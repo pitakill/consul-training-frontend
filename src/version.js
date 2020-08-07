@@ -1,3 +1,3 @@
-const version = "3.5";
+const version = "3.7";
 
-export default version
+export default version;
